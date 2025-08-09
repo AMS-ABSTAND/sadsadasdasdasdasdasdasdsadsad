@@ -110,6 +110,7 @@ function OnEvent(event, arg)
             -- Toggle recoil ON/OFF
             isRecoilEnabled = not isRecoilEnabled
             OutputLogMessage("Recoil %s\n", isRecoilEnabled and "ON" or "OFF")
+            recoilIndex = 1 -- reset pattern when toggling
 
         elseif arg == 4 then
             -- Switch weapon profile
@@ -118,6 +119,7 @@ function OnEvent(event, arg)
             else
                 currentWeapon = "ash"
             end
+            recoilIndex = 1 -- reset pattern on weapon change
             OutputLogMessage("Switched to: %s\n", getWeapon().name)
 
         elseif arg == 1 and isRecoilEnabled then
